@@ -6,7 +6,7 @@
 ### Problem Statement <br> 
 News articles use specific techniques to convey their messages through propaganda where information is purposefully shaped to foster a predetermined agenda.  Our goal is to produce a model capable of spotting text fragments in which propaganda techniques are used in a news article. 
 The question we want to explore is: What methods can be used to identify propaganda, and what sort of patterns and characteristics exist within each method?
-There are 18 common methods that determine the different types of uses of propaganda in propaganda articles [[1]](https://propaganda.qcri.org/annotations/definitions.html)  
+There are 18 common methods that determine the different types of uses of propaganda in propaganda articles [[1]](https://propaganda.qcri.org/annotations/definitions.html)
 After developing a multiclass classifier to identify which types of propaganda are present in each article, we aim to further improve the model by identifying underlying patterns that are present in each category.  This includes:
 Examining any similarities between classes, and whether there are shared characteristics among them 
 Exploring any lexicon patterns that tend to indicate controversial/propaganda pieces (e.g., any words that repeatedly arise in articles flagged as propaganda)
@@ -23,13 +23,25 @@ FLC (fragment level classification) labels were distinguished by beginning and e
 - Exaggeration/Minimalization: willing to bet the Guardian a million dollars and its editor's head that Manafort never met Assange
 
 **Data Exploration** <br>
-The dataset contained an uneven number of cases per class, with the most labeled class containing 1,058 labels and the least labeled class containing 72 labels.  To even out the dataset, we tried two approaches: 1) augmenting data using an oversampling technique called SMOTE, and 2) eliminating all but the top 5 most labeled classes. <br> 
+The dataset contained an uneven number of cases per class, with the most labeled class containing 2,058 labels and the least labeled class containing 72 labels.  The other classes fell in between the highest and lowest:
+[![Screenshot-138.png](https://i.postimg.cc/rpsnHVkY/Screenshot-138.png)](https://postimg.cc/PLGQpkNm)  <br>
 
-### Models <br>
+**Data Augmentation** <br>
+We adjusted for the imbalanced dataset with two approaches:
+- augmenting the data using an oversampling technique called SMOTE, which generates synthetic examples until all classes are an even size
+- eliminating all but the top 5 most labeled classes
+We ran separate analyses with SMOTE, with only the top 5 highest classes, and also combined SMOTE with reducing classes:
+  * Unaugmented dataset with 14 classes
+  * SMOTE with 14 classes
+  * Unaugmented dataset with 5 classes 
+  * SMOTE with 5 classes 
+
+### Models 
 Models were run with original dataset (14 classes), reduced dataset (5 classes), and SMOTE dataset
 - Baseline models: Naive Bayes, Logistic Regression, and Linear Regression
 - Comparison model: LSTM
-- Features: ngrams, word embeddings, tfidf
+- Features: ngrams, word embeddings, tfidf, Urban Dictionary 
 
-
+### Analysis
+To measure accuracy we used the F1 score, which is the weighted average of precision and recall:
 
