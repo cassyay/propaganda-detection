@@ -42,6 +42,15 @@ Models were run with original dataset (14 classes), reduced dataset (5 classes),
 - Comparison model: LSTM
 - Features: ngrams, word embeddings, tfidf, Urban Dictionary 
 
+An LSTM (Long Short Term Memory) network is a type of RNN that is capable of remembering surrounding context.  Therefore they are able to learn long-term dependencies [[5]](https://colah.github.io/posts/2015-08-Understanding-LSTMs/).  Their structure allows them to overcome both vanishing gradients and exploding gradients. LSTM models are useful for data that has its meaning affected by surrounding context, as opposed to only being determined by its own value.
+
 ### Analysis
 To measure accuracy we used the F1 score, which is the weighted average of precision and recall:
 
+The F1-score is useful for dealing with imbalanced datasets because it finds an equal balance between precision and recall [[6]](https://sebastianraschka.com/faq/docs/computing-the-f1-score.html). Precision is the ratio of true positives to true positive and false negatives; recall is the ratio of true positives to false negatives and true negatives:
+
+[![Screenshot-139.png](https://i.postimg.cc/DyWBqtLR/Screenshot-139.png)](https://postimg.cc/ppHfvc0B)
+
+### Results 
+
+### Summary 
