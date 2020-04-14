@@ -39,7 +39,7 @@ We ran separate analyses with SMOTE, with only the top 5 highest classes, and al
 ### Models 
 Models were run with original dataset (14 classes), reduced dataset (5 classes), and SMOTE dataset
 - Baseline models: Naive Bayes, Logistic Regression, and Linear Regression
-- Comparison model: LSTM
+- Comparison model: LSTM, LSTM with word embeddings 
 - Features: ngrams, word embeddings, tfidf, Urban Dictionary 
 
 An LSTM (Long Short Term Memory) network is a type of RNN that is capable of remembering surrounding context.  Therefore they are able to learn long-term dependencies [[5]](https://colah.github.io/posts/2015-08-Understanding-LSTMs/).  Their structure allows them to overcome both vanishing gradients and exploding gradients. LSTM models are useful for data that has its meaning affected by surrounding context, as opposed to only being determined by its own value.
@@ -51,6 +51,32 @@ The F1-score is useful for dealing with imbalanced datasets because it finds an 
 
 [![Screenshot-139.png](https://i.postimg.cc/DyWBqtLR/Screenshot-139.png)](https://postimg.cc/ppHfvc0B)
 
+For data with multiple classes, the weighted, or macro, F1 score is used to determine accuracy.  The macro F1 takes the individual scores (PRE) of the k number of classes:
+
+[![Screenshot-140.png](https://i.postimg.cc/2ygj5Cpv/Screenshot-140.png)](https://postimg.cc/CnHpPTxL)
+
 ### Results 
+For the datset with 14 classes: 
+- Logistic regression (LR) without word embeddings, and with SMOTE had the highest F1 score, however the linear classifier (LC) without SMOTE scored about the same
+- The LSTM model scored lower than the LC, with and without SMOTE.  LSTM with SMOTE scored only slightly higher than LR without SMOTE
+- SMOTE had the largest effect on the LR model
+
+For the dataset with 5 classes:
+- Overall, scores were much higher for 5 classes than for 14 classes
+- LR with SOMTE scored the highest, LSTM with word embeddings and SMOTE was roughly the same score as LR with SMOTE
+- SMOTE had the largest effect on the LSTM model 
+
+For SMOTE:
+- Without SMOTE, the majority of predicted classes were for the top 3 classes, and the classes with less cases were getting zero TP/FP classifications.  Most of the accuracy was because the model was only predicting the top 3 classes, and therefore getting the majority correct
+- With SMOTE, the classes with less cases were getting classified more, indicating that using SMOTE allowed for more accuracy of all 14 classes
 
 ### Summary 
+The dataset we used was imblanaced and had few cases for some of the classes.
+- SMOTE oversampling helped some of the smaller classes become classified more often
+- Having more gold labels would be more effective than SMOTE
+
+Automating propaganda detection is one of the more difficult cases in AI for many reasons.
+- Propaganda context is dependent on a culture's history, current issues, facts, language, etc.  Being able to detect propaganda requires an understanding of several constantly changing factors that make it difficult to fully automate  
+- Propaganda is not always fully explicit, as a major component of propaganda is manipulation
+- This case has 14 classifications of propaganda, however there are many more that have not been considered 
+- Much more resources would be necessary to build a functional NLP model to detect propaganda
