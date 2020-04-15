@@ -3,6 +3,8 @@
 
 [![Screenshot-136.png](https://i.postimg.cc/KvYNtQwX/Screenshot-136.png)](https://postimg.cc/YjJYHNt8)
 
+- Code for baseline model test, baseline models with SMOTE, and baseline models with SMOTE for top 5 most labeled classes is available
+
 ### Problem Statement <br> 
 News articles use specific techniques to convey their messages through propaganda where information is purposefully shaped to foster a predetermined agenda.  Our goal is to produce a model capable of spotting text fragments in which propaganda techniques are used in a news article. 
 The question we want to explore is: What methods can be used to identify propaganda, and what sort of patterns and characteristics exist within each method?
