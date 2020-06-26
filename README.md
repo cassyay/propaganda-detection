@@ -1,5 +1,16 @@
-# Classifying types of propaganda  
-## Final project for [DS4a Summit](https://www.correlation-one.com/ds4a) hosted by Correlation One <br>
+<div align="center">
+
+# Final project for [DS4a Summit](https://www.correlation-one.com/ds4a) hosted by Correlation One <br>
+
+</div>
+
+[![DS4-A-Certificate.png](https://i.postimg.cc/5020CHdR/DS4-A-Certificate.png)](https://postimg.cc/SXHk0xK6)
+
+<div align="center">
+
+## Propaganda Classification using NLP
+
+</div>
 
 [![Screenshot-136.png](https://i.postimg.cc/KvYNtQwX/Screenshot-136.png)](https://postimg.cc/YjJYHNt8)
 
